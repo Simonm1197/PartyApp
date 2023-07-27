@@ -18,7 +18,7 @@ import Checkbox from 'expo-checkbox';
 const {height, width} = Dimensions.get('window');
 
 const TopNav = () => {
-  const [disp, setDisp] = useState(false);
+  const [disp, setDisp] = useState(true);
   const [imgIndex, setimgIndex] = useState(0);
   console.log(imgIndex);
   let carousel = [
@@ -104,7 +104,7 @@ const TopNav = () => {
 
   let item1 = [
     {
-      img: 'https://stylesatlife.com/wp-content/uploads/2019/10/best-screen-door-designs.jpg.webp',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjN4_1Nmy1U5gj7URuisaMda_mvtIt3G0MyKtk4kEyGL3BakiUa5hkprnW-kv_ExrduM0&usqp=CAU',
       category: 'Enteance Decor',
       title: 'Decor to a New Begining',
       done: 'Select',
@@ -113,7 +113,7 @@ const TopNav = () => {
       isChecked: true,
     },
     {
-      img: 'https://stylesatlife.com/wp-content/uploads/2019/10/best-screen-door-designs.jpg.webp',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHk6tvLpdDRntf7z2bc1kopqFIAIWwoNCKCA&usqp=CAU',
       category: 'Photography',
       done: 'Select',
       title: 'Premium Photos',
@@ -122,7 +122,7 @@ const TopNav = () => {
       isChecked: false,
     },
     {
-      img: 'https://stylesatlife.com/wp-content/uploads/2019/10/best-screen-door-designs.jpg.webp',
+      img: 'https://i0.wp.com/vfxdownload.com/wp-content/uploads/2020/01/Wedding_promo_01119.jpg?fit=590%2C332&ssl=1',
       category: 'Videography',
       done: 'Select',
       title: 'Premium Videos',
@@ -131,7 +131,7 @@ const TopNav = () => {
       isChecked: false,
     },
     {
-      img: 'https://stylesatlife.com/wp-content/uploads/2019/10/best-screen-door-designs.jpg.webp',
+      img: 'https://i.pinimg.com/736x/67/75/22/677522e402d9145af4ff89efa0f70be9.jpg',
       category: 'Guest Seating',
       done: 'Select',
       title: 'Royal Seating',
@@ -141,104 +141,376 @@ const TopNav = () => {
     },
   ];
 
+  let item2 = [
+    {
+      img: 'https://i.pinimg.com/564x/c4/20/61/c4206159bf058ed3250c772ffb637638.jpg',
+      category: 'Sounds & Light',
+      title: 'Soul Harvest',
+      done: 'Select',
+      price: '₹ 40,000',
+      desc: 'Amet minim mollit non desernut ullamco est sit alliqua dolor do amet sint.',
+      isChecked: true,
+    },
+  ];
+
+  let item3 = [
+    {
+      img: 'https://www.ecorentacar.com/wp-content/uploads/2019/01/3.jpg',
+      category: 'Transportation',
+      title: 'Making Memorires',
+      done: 'Select',
+      price: '₹ 40,000',
+      desc: 'Amet minim mollit non desernut ullamco est sit alliqua dolor do amet sint.',
+      isChecked: true,
+    },
+  ];
+
   return (
     <View>
       {disp ? (
-        <View style={{backgroundColor: '#EBEBEB', gap: 20}}>
-          <View
-            style={[
-              styles.subContainer2,
-              {
-                justifyContent: 'space-between',
-                padding: 20,
-                backgroundColor: '#FFF',
-              },
-            ]}>
-            <View style={[styles.subContainer2, {gap: 20}]}>
-              <Pressable onPress={() => setDisp(false)}>
+        <View>
+          <ScrollView style={{backgroundColor: '#EBEBEB', gap: 20}}>
+            <>
+              <View
+                style={[
+                  styles.subContainer2,
+                  {
+                    justifyContent: 'space-between',
+                    padding: 20,
+                    backgroundColor: '#FFF',
+                  },
+                ]}>
+                <View style={[styles.subContainer2, {gap: 20}]}>
+                  <Pressable onPress={() => setDisp(false)}>
+                    <Image
+                      source={require('../assets/icons/arrow.png')}
+                      style={styles.secPageLogo}
+                    />
+                  </Pressable>
+
+                  <Text
+                    style={{fontWeight: 'bold', color: '#000', fontSize: 20}}>
+                    Add-ons
+                  </Text>
+                </View>
                 <Image
-                  source={require('../assets/icons/arrow.png')}
+                  source={require('../assets/icons/dots.png')}
                   style={styles.secPageLogo}
                 />
-              </Pressable>
+              </View>
+              <View
+                style={{
+                  backgroundColor: '#fff',
+                  flexDirection: 'row',
+                  justifyContent: 'space-around',
+                  alignItems: 'center',
+                  marginBottom: 10,
+                  padding: 10,
+                }}>
+                <Text
+                  style={[
+                    styles.topHeading,
+                    {
+                      color: '#6E00F3',
+                      borderColor: '#6E00F3',
+                      backgroundColor: '#F4ECFC',
+                    },
+                  ]}>
+                  Wedding
+                </Text>
+                <Text style={styles.topHeading}>Reception</Text>
+                <Text style={styles.topHeading}>Common</Text>
 
-              <Text style={{fontWeight: 'bold', color: '#000', fontSize: 20}}>
-                Add-ons
-              </Text>
-            </View>
-            <Image
-              source={require('../assets/icons/dots.png')}
-              style={styles.secPageLogo}
-            />
-          </View>
-
-          <View style={{backgroundColor: '#fff'}}>
-            <Text
-              style={{
-                marginHorizontal: 10,
-                fontSize: 25,
-                color: '#000',
-                fontWeight: 'bold',
-              }}>
-              Wedding items(4)
-            </Text>
-            <FlatList
-              data={item1}
-              renderItem={({item}) => (
                 <View
                   style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    borderBottomWidth: 1,
-                    width: Dimensions.get('window').width / 1.1,
-                    marginHorizontal: 10,
-                    paddingVertical: 20,
-                    borderColor: '#D3CFCF',
+                    width: 1,
+                    height: '80%',
+                    borderRightWidth: 1,
+                    borderColor: 'gray',
                     alignSelf: 'center',
+                  }}
+                />
+
+                <Image
+                  source={require('../assets/icons/sort.png')}
+                  style={[styles.secPageLogo, {height: 30, width: 30}]}
+                />
+              </View>
+
+              <View
+                style={{backgroundColor: '#fff', marginBottom: 5, padding: 10}}>
+                <Text
+                  style={{
+                    marginHorizontal: 10,
+                    fontSize: 25,
+                    color: '#000',
+                    fontWeight: 'bold',
                   }}>
-                  <Image source={{uri: item.img}} style={styles.prodImg} />
-                  <View style={{width: '70%', paddingHorizontal: 10}}>
+                  Wedding items(4)
+                </Text>
+                <FlatList
+                  data={item1}
+                  renderItem={({item}) => (
                     <View
                       style={{
-                        flex: 1,
+                        display: 'flex',
                         flexDirection: 'row',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
+                        borderBottomWidth: 1,
+                        width: Dimensions.get('window').width / 1.1,
+                        marginHorizontal: 10,
+                        paddingVertical: 20,
+                        borderColor: '#D3CFCF',
+                        alignSelf: 'center',
                       }}>
-                      <Text style={{color: '#000'}}>{item.category}</Text>
+                      <Image source={{uri: item.img}} style={styles.prodImg} />
+                      <View style={{width: '70%', paddingHorizontal: 10}}>
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            width: '100%',
+                          }}>
+                          <Text style={{color: '#000'}}>{item.category}</Text>
 
-                      <View
-                        style={{
-                          flex: 1,
-                          flexDirection: 'row',
-                          alignItems: 'center',
-                        }}>
-                        <Checkbox
-                          style={styles.checkbox}
-                          value={item.isChecked}
-                          color={item.isChecked ? '#4630EB' : undefined}
-                        />
-                        <Text style={{color: '#000'}}>{item.done}</Text>
+                          <View
+                            style={{
+                              flexDirection: 'row',
+                              alignItems: 'center',
+                            }}>
+                            <Checkbox
+                              style={styles.checkbox}
+                              value={item.isChecked}
+                              color={item.isChecked ? '#4630EB' : undefined}
+                            />
+                            <Text style={{color: '#000'}}>{item.done}</Text>
+                          </View>
+                        </View>
+
+                        <Text
+                          style={{
+                            fontSize: 18,
+                            fontWeight: 'bold',
+                            color: '#000',
+                          }}>
+                          {item.title}
+                        </Text>
+                        <Text
+                          style={{
+                            fontWeight: 'bold',
+                            color: '#000',
+                            fontSize: 15,
+                            marginVertical: 10,
+                          }}>
+                          {item.price}
+                        </Text>
+                        <Text>{item.desc}</Text>
                       </View>
                     </View>
+                  )}
+                />
+              </View>
 
-                    <Text
-                      style={{fontSize: 18, fontWeight: 'bold', color: '#000'}}>
-                      {item.title}
-                    </Text>
-                    <Text
+              <View
+                style={{
+                  backgroundColor: '#fff',
+                  marginVertical: 5,
+                  padding: 10,
+                }}>
+                <Text
+                  style={{
+                    marginHorizontal: 10,
+                    fontSize: 25,
+                    color: '#000',
+                    fontWeight: 'bold',
+                  }}>
+                  Reception items(1)
+                </Text>
+                <FlatList
+                  data={item2}
+                  renderItem={({item}) => (
+                    <View
                       style={{
-                        fontWeight: 'bold',
-                        color: '#000',
-                        fontSize: 15,
-                        marginVertical: 10,
+                        display: 'flex',
+                        flexDirection: 'row',
+                        width: Dimensions.get('window').width / 1.1,
+                        marginHorizontal: 10,
+                        paddingVertical: 20,
+                        borderColor: '#D3CFCF',
+                        alignSelf: 'center',
                       }}>
-                      {item.price}
-                    </Text>
-                    <Text>{item.desc}</Text>
-                  </View>
+                      <Image source={{uri: item.img}} style={styles.prodImg} />
+                      <View style={{width: '70%', paddingHorizontal: 10}}>
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            width: '100%',
+                          }}>
+                          <Text style={{color: '#000'}}>{item.category}</Text>
+
+                          <View
+                            style={{
+                              flexDirection: 'row',
+                              alignItems: 'center',
+                            }}>
+                            <Checkbox
+                              style={styles.checkbox}
+                              value={item.isChecked}
+                              color={item.isChecked ? '#4630EB' : undefined}
+                            />
+                            <Text style={{color: '#000'}}>{item.done}</Text>
+                          </View>
+                        </View>
+
+                        <Text
+                          style={{
+                            fontSize: 18,
+                            fontWeight: 'bold',
+                            color: '#000',
+                          }}>
+                          {item.title}
+                        </Text>
+                        <Text
+                          style={{
+                            fontWeight: 'bold',
+                            color: '#000',
+                            fontSize: 15,
+                            marginVertical: 10,
+                          }}>
+                          {item.price}
+                        </Text>
+                        <Text>{item.desc}</Text>
+                      </View>
+                    </View>
+                  )}
+                />
+              </View>
+
+              <View style={{backgroundColor: '#fff', marginVertical: 5}}>
+                <Text
+                  style={{
+                    marginHorizontal: 10,
+                    fontSize: 25,
+                    color: '#000',
+                    fontWeight: 'bold',
+                  }}>
+                  Common items(1)
+                </Text>
+                <FlatList
+                  data={item3}
+                  renderItem={({item}) => (
+                    <View
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        width: Dimensions.get('window').width / 1.1,
+                        marginHorizontal: 10,
+                        paddingVertical: 20,
+                        borderColor: '#D3CFCF',
+                        alignSelf: 'center',
+                      }}>
+                      <Image source={{uri: item.img}} style={styles.prodImg} />
+                      <View style={{width: '70%', paddingHorizontal: 10}}>
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            width: '100%',
+                          }}>
+                          <Text style={{color: '#000'}}>{item.category}</Text>
+
+                          <View
+                            style={{
+                              flexDirection: 'row',
+                              alignItems: 'center',
+                            }}>
+                            <Checkbox
+                              style={styles.checkbox}
+                              value={item.isChecked}
+                              color={item.isChecked ? '#4630EB' : undefined}
+                            />
+                            <Text style={{color: '#000'}}>{item.done}</Text>
+                          </View>
+                        </View>
+
+                        <Text
+                          style={{
+                            fontSize: 18,
+                            fontWeight: 'bold',
+                            color: '#000',
+                          }}>
+                          {item.title}
+                        </Text>
+                        <Text
+                          style={{
+                            fontWeight: 'bold',
+                            color: '#000',
+                            fontSize: 15,
+                            marginVertical: 10,
+                          }}>
+                          {item.price}
+                        </Text>
+                        <Text>{item.desc}</Text>
+                      </View>
+                    </View>
+                  )}
+                />
+              </View>
+
+              <View
+                style={{
+                  backgroundColor: '#fff',
+                  padding: 15,
+                  marginTop: 5,
+                  // flex: 1,
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                }}>
+                <View>
+                  <Text style={{color: '#000', fontWeight: 'bold'}}>
+                    ₹3,90,000
+                  </Text>
+                  <Text>Package price</Text>
                 </View>
-              )}
+
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#6E00F3',
+                    height: 50,
+                    width: 220,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 30,
+                  }}>
+                  <Text
+                    style={{
+                      color: '#fff',
+                      textAlign: 'center',
+                    }}>
+                    Continue
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </>
+          </ScrollView>
+          <View
+            style={{
+              position: 'absolute',
+              bottom: 80,
+              right: 20,
+              backgroundColor: '#000',
+              height: 60,
+              width: 60,
+              borderRadius: 30,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <Image
+              style={{height: 30, width: 30, tintColor: '#fff'}}
+              source={require('../assets/icons/conversation.png')}
             />
           </View>
         </View>
@@ -663,5 +935,13 @@ const styles = StyleSheet.create({
   },
   checkbox: {
     margin: 5,
+  },
+  topHeading: {
+    borderWidth: 1,
+    borderRadius: 20,
+    padding: 8,
+    paddingHorizontal: 15,
+    borderColor: '#DCDADA',
+    color: '#000',
   },
 });
